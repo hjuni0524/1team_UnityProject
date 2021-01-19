@@ -73,8 +73,8 @@
     <Compile Include="Assets\Resource\Water\Water\Scripts\WaterBase.cs" />
     <Compile Include="Assets\Resource\Water\Water\Scripts\WaterTile.cs" />
     <Compile Include="Assets\Scripts\Intro\IntroSceneManager.cs" />
-    <Compile Include="Assets\Scripts\Loby\LobySceneManager.cs" />
-    <Compile Include="Assets\Scripts\Loby\PalyButton.cs" />
+    <Compile Include="Assets\Scripts\Lobby\LobbySceneManager.cs" />
+    <Compile Include="Assets\Scripts\Stage\StageSceneManager.cs" />
     <Compile Include="Assets\SpeedTutor_Full_Menu_System\GUI Elements\UI_BrightnessShader\Brightness.cs" />
     <Compile Include="Assets\SpeedTutor_Full_Menu_System\MenuScripts\Init_LoadPreferences.cs" />
     <Compile Include="Assets\SpeedTutor_Full_Menu_System\MenuScripts\MenuController.cs" />

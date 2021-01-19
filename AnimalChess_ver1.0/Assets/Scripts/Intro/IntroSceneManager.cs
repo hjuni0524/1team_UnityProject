@@ -21,7 +21,7 @@ public class IntroSceneManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            SceneManager.LoadScene("LobyScene");
+            SceneManager.LoadScene("LobbyScene");
         }
     }
 }
