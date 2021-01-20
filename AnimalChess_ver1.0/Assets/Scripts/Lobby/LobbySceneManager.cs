@@ -55,6 +55,11 @@ public class LobbySceneManager : MonoBehaviour
         SceneManager.LoadScene("LobbyScene");
     }
 
+    public void Stage1()
+    {
+        SceneManager.LoadScene("S1_BattleScene");
+    }
+
     //---------------------------------------------------------------
     //  패널 팝업 함수
     public void Option()
