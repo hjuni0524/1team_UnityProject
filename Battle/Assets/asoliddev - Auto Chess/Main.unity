@@ -624,7 +624,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d077abb130e5ad43af63afd0d784e14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aiOpponent: {fileID: 0}
+  aiOpponent: {fileID: 27158427}
 --- !u!1 &50094878
 GameObject:
   m_ObjectHideFlags: 0
