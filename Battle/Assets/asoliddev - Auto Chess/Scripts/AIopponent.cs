@@ -14,14 +14,16 @@ public class AIopponent : MonoBehaviour
     public GameData gameData;
     public Stage1 stage1;
     
+    
 
     public GameObject[,] gridChampionsArray;
 
     public Dictionary<ChampionType, int> championTypeCount;
     public List<ChampionBonus> activeBonusList;
 
+    public List<Champion> enemyList; 
     ///The damage that player takes when losing a round
-    public int championDamage = 2;
+    public int damageToPlayer = 0;
     public int round = 1;
 
     private void Awake()
@@ -86,9 +88,18 @@ public class AIopponent : MonoBehaviour
                         //get character
                         ChampionController championController = gridChampionsArray[x, z].GetComponent<ChampionController>();
 
-                        //calculate player damage for every champion
-                        if (championController.currentHealth > 0)
-                            damage += championDamage;
+                        for (int i = 0; i < enemyList.Count; i++)
+                        {
+                            if (gridChampionsArray[x, z].name == enemyList[i].prefab.name + "(Clone)")
+                            {
+                                //calculate player damage for every champion
+                                if (championController.currentHealth > 0)
+                                {
+                                    damage += enemyList[i].damageToPlayer;
+                                }
+                            }
+                            break;  
+                        }
                     }
 
                 }
@@ -167,6 +178,8 @@ public class AIopponent : MonoBehaviour
         //set position and rotation
         championController.SetWorldPosition();
         championController.SetWorldRotation();
+
+        enemyList.Add(enemy);
 
         //  //check for champion upgrade
         //  List<ChampionController> championList_lvl_1 = new List<ChampionController>();
@@ -283,7 +296,12 @@ public class AIopponent : MonoBehaviour
         bool allDead = IsAllChampionDead();
 
         if (allDead)
+        {
+            gamePlayController.winBonus = 1;
+            gamePlayController.continuedWin++;
+            gamePlayController.continuedLose = 0;
             gamePlayController.EndRound();
+        }
     }
 
 

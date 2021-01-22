@@ -82,9 +82,9 @@ public class ChampionController : MonoBehaviour
     private List<Effect> effects;
 
     /// Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-    
+        uIController = GameObject.Find("Scripts").GetComponent<UIController>();
     }
 
     /// <summary>

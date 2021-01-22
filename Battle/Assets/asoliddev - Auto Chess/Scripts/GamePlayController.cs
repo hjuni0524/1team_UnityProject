@@ -36,6 +36,7 @@ public class GamePlayController : MonoBehaviour
     public int CombatStageDuration = 60;
     ///base gold value to get after every round
     public int baseGoldIncome = 5;
+    public int winBonus = 0;
 
     [HideInInspector]
     public int currentChampionLimit = 3;
@@ -50,6 +51,9 @@ public class GamePlayController : MonoBehaviour
 
     public Dictionary<ChampionType, int> championTypeCount;
     public List<ChampionBonus> activeBonusList;
+
+    public int continuedWin = 0;
+    public int continuedLose = 0;
 
     /// Start is called before the first frame update
     void Start()
@@ -74,24 +78,26 @@ public class GamePlayController : MonoBehaviour
         //manage game stage
         if (currentGameStage == GameStage.Preparation)
         {
-            timer += Time.deltaTime;
-
-            timerDisplay = (int) (PreparationStageDuration - timer);
-
-            uIController.UpdateTimerText();
-
-            if (timer > PreparationStageDuration)
-            {
-                timer = 0;
-
-                OnGameStageComplate();
-            }
+            //  timer += Time.deltaTime;
+            //  
+            //  timerDisplay = (int) (PreparationStageDuration - timer);
+            //  
+            //  uIController.UpdateTimerText();
+            //  
+            //  if (timer > PreparationStageDuration)
+            //  {
+            //      timer = 0;
+            //  
+            //      //  OnGameStageComplate();
+            //  }
         }
         else if (currentGameStage == GameStage.Combat)
         {
             timer += Time.deltaTime;
 
-            timerDisplay = (int)timer;
+            timerDisplay = (int) (CombatStageDuration - timer);
+
+            uIController.UpdateTimerText();
 
             if (timer > CombatStageDuration)
             {
@@ -570,7 +576,7 @@ public class GamePlayController : MonoBehaviour
     /// <summary>
     /// Called when a game stage is finished
     /// </summary>
-    private void OnGameStageComplate()
+    public void OnGameStageComplate()
     {
         //tell ai that stage complated
         aIopponent.OnGameStageComplate(currentGameStage);
@@ -583,8 +589,10 @@ public class GamePlayController : MonoBehaviour
             //show indicators
             map.HideIndicators();
 
+            uIController.ready.gameObject.SetActive(false);
+
             //hide timer text
-            uIController.SetTimerTextActive(false);
+            uIController.SetTimerTextActive(true);
 
 
             if (draggedChampion != null)
@@ -629,7 +637,12 @@ public class GamePlayController : MonoBehaviour
 
             //check if we start with 0 champions
             if (IsAllChampionDead())
+            {
+                winBonus = 0;
+                continuedLose++;
+                continuedWin = 0;
                 EndRound();
+            }
            
 
         }
@@ -638,8 +651,10 @@ public class GamePlayController : MonoBehaviour
             //set new game stage
             currentGameStage = GameStage.Preparation;
 
+            uIController.ready.gameObject.SetActive(true);
+
             //show timer text
-            uIController.SetTimerTextActive(true);
+            uIController.SetTimerTextActive(false);
 
             //reset champion
             ResetChampions();
@@ -688,6 +703,13 @@ public class GamePlayController : MonoBehaviour
        
         income += baseGoldIncome;
         income += bank;
+        income += winBonus;
+        if (continuedWin > 4) income += 2;
+        else if (continuedWin > 1) income++;
+        else if (continuedLose > 4) income += 4;
+        else if (continuedLose > 2) income += 3;
+        else if (continuedLose > 1) income += 2;
+
 
         return income;
     }
@@ -804,7 +826,12 @@ public class GamePlayController : MonoBehaviour
         bool allDead = IsAllChampionDead();
 
         if (allDead)
+        {
+            winBonus = 0;
+            continuedLose++;
+            continuedWin = 0;
             EndRound();
+        }
     }
 
 
@@ -853,6 +880,4 @@ public class GamePlayController : MonoBehaviour
             currentGold += draggedChampion.GetComponent<Champion>().cost;
         }
     }
-
-
 }

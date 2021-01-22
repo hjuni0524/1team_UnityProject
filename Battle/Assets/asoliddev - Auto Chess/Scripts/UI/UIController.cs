@@ -16,6 +16,8 @@ public class UIController : MonoBehaviour
     public GameObject[] bonusPanels;
 
 
+    public Button ready;
+
     public Text timerText;
     public Text championCountText;
     public Text goldText;
@@ -170,7 +172,7 @@ public class UIController : MonoBehaviour
     {
         timerText.gameObject.SetActive(b);
 
-        placementText.SetActive(b);
+        //  placementText.SetActive(b);
     }
 
     /// <summary>
