@@ -64,28 +64,46 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\BattleScene\Scripts\AIopponent.cs" />
+    <Compile Include="Assets\BattleScene\Scripts\AttackBehaviour.cs" />
+    <Compile Include="Assets\BattleScene\Scripts\Champion.cs" />
+    <Compile Include="Assets\BattleScene\Scripts\ChampionAnimation.cs" />
+    <Compile Include="Assets\BattleScene\Scripts\ChampionBonus.cs" />
+    <Compile Include="Assets\BattleScene\Scripts\ChampionController.cs" />
+    <Compile Include="Assets\BattleScene\Scripts\ChampionShop.cs" />
+    <Compile Include="Assets\BattleScene\Scripts\ChampionType.cs" />
+    <Compile Include="Assets\BattleScene\Scripts\Effect.cs" />
+    <Compile Include="Assets\BattleScene\Scripts\FloatingText.cs" />
+    <Compile Include="Assets\BattleScene\Scripts\GameData.cs" />
+    <Compile Include="Assets\BattleScene\Scripts\GamePlayController.cs" />
+    <Compile Include="Assets\BattleScene\Scripts\HealthBar.cs" />
+    <Compile Include="Assets\BattleScene\Scripts\InputController.cs" />
+    <Compile Include="Assets\BattleScene\Scripts\ManaBar.cs" />
+    <Compile Include="Assets\BattleScene\Scripts\Map.cs" />
+    <Compile Include="Assets\BattleScene\Scripts\Projectile.cs" />
+    <Compile Include="Assets\BattleScene\Scripts\Stage1.cs" />
+    <Compile Include="Assets\BattleScene\Scripts\TriggerInfo.cs" />
+    <Compile Include="Assets\BattleScene\Scripts\UI\UIController.cs" />
+    <Compile Include="Assets\BattleScene\Scripts\WorldCanvasController.cs" />
+    <Compile Include="Assets\Resource\Water\Water\Scripts\Displace.cs" />
+    <Compile Include="Assets\Resource\Water\Water\Scripts\GerstnerDisplace.cs" />
+    <Compile Include="Assets\Resource\Water\Water\Scripts\MeshContainer.cs" />
+    <Compile Include="Assets\Resource\Water\Water\Scripts\PlanarReflection.cs" />
+    <Compile Include="Assets\Resource\Water\Water\Scripts\SpecularLighting.cs" />
+    <Compile Include="Assets\Resource\Water\Water\Scripts\Water.cs" />
+    <Compile Include="Assets\Resource\Water\Water\Scripts\WaterBase.cs" />
+    <Compile Include="Assets\Resource\Water\Water\Scripts\WaterTile.cs" />
+    <Compile Include="Assets\Scripts\Intro\IntroSceneManager.cs" />
+    <Compile Include="Assets\Scripts\Lobby\LobbySceneManager.cs" />
+    <Compile Include="Assets\SpeedTutor_Full_Menu_System\GUI Elements\UI_BrightnessShader\Brightness.cs" />
     <Compile Include="Assets\WW2 Armed Forces Demo\Scripts\Scroll_Track.cs" />
-    <Compile Include="Assets\asoliddev - Auto Chess\Scripts\AIopponent.cs" />
-    <Compile Include="Assets\asoliddev - Auto Chess\Scripts\AttackBehaviour.cs" />
-    <Compile Include="Assets\asoliddev - Auto Chess\Scripts\Champion.cs" />
-    <Compile Include="Assets\asoliddev - Auto Chess\Scripts\ChampionAnimation.cs" />
-    <Compile Include="Assets\asoliddev - Auto Chess\Scripts\ChampionBonus.cs" />
-    <Compile Include="Assets\asoliddev - Auto Chess\Scripts\ChampionController.cs" />
-    <Compile Include="Assets\asoliddev - Auto Chess\Scripts\ChampionShop.cs" />
-    <Compile Include="Assets\asoliddev - Auto Chess\Scripts\ChampionType.cs" />
-    <Compile Include="Assets\asoliddev - Auto Chess\Scripts\Effect.cs" />
-    <Compile Include="Assets\asoliddev - Auto Chess\Scripts\FloatingText.cs" />
-    <Compile Include="Assets\asoliddev - Auto Chess\Scripts\GameData.cs" />
-    <Compile Include="Assets\asoliddev - Auto Chess\Scripts\GamePlayController.cs" />
-    <Compile Include="Assets\asoliddev - Auto Chess\Scripts\HealthBar.cs" />
-    <Compile Include="Assets\asoliddev - Auto Chess\Scripts\InputController.cs" />
-    <Compile Include="Assets\asoliddev - Auto Chess\Scripts\ManaBar.cs" />
-    <Compile Include="Assets\asoliddev - Auto Chess\Scripts\Map.cs" />
-    <Compile Include="Assets\asoliddev - Auto Chess\Scripts\Projectile.cs" />
-    <Compile Include="Assets\asoliddev - Auto Chess\Scripts\Stage1.cs" />
-    <Compile Include="Assets\asoliddev - Auto Chess\Scripts\TriggerInfo.cs" />
-    <Compile Include="Assets\asoliddev - Auto Chess\Scripts\UI\UIController.cs" />
-    <Compile Include="Assets\asoliddev - Auto Chess\Scripts\WorldCanvasController.cs" />
+    <None Include="Assets\Resource\Water\Water4\Shaders\WaterInclude.cginc" />
+    <None Include="Assets\Resource\Water\Water4\Shaders\FXWater4Advanced.shader" />
+    <None Include="Assets\BlackBold + GreyBold Font Pack\GreyBold\Font Conversion Sheet GreyBold-export.fnt" />
+    <None Include="Assets\Resource\Water\Water4\Shaders\FXWater4Simple.shader" />
+    <None Include="Assets\SpeedTutor_Full_Menu_System\GUI Elements\UI_BrightnessShader\BrightnessEffect.shader" />
+    <None Include="Assets\Resource\Water\Water\Shaders\FXWaterPro.shader" />
+    <None Include="Assets\BlackBold + GreyBold Font Pack\BlackBold\Conversion sheet-export.fnt" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
