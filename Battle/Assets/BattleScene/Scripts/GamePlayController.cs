@@ -38,11 +38,15 @@ public class GamePlayController : MonoBehaviour
     public int baseGoldIncome = 5;
     public int winBonus = 0;
 
-    [HideInInspector]
-    public int currentChampionLimit = 3;
+    public float currentExp;
+    public float needExp;
+
+
+ 
+    public int currentChampionLimit = 1;
     [HideInInspector]
     public int currentChampionCount = 0;
-    [HideInInspector]
+ 
     public int currentGold = 5;
     [HideInInspector]
     public int currentHP = 100;
@@ -669,6 +673,9 @@ public class GamePlayController : MonoBehaviour
             //add gold
             currentGold += CalculateIncome();
 
+            currentExp += 2;
+            CheckExp();
+
             //set gold ui
             uIController.UpdateUI();
 
@@ -714,6 +721,54 @@ public class GamePlayController : MonoBehaviour
         return income;
     }
 
+
+    public void CheckExp()
+    {
+        if (currentChampionLimit == 1)
+        {
+            needExp = 2;
+        }
+        else if (currentChampionLimit == 2)
+        {
+            needExp = 4;
+        }
+        else if (currentChampionLimit == 3)
+        {
+            needExp = 6;
+        }
+        else if (currentChampionLimit == 4)
+        {
+            needExp = 10;
+        }
+        else if (currentChampionLimit == 5)
+        {
+            needExp = 20;
+        }
+        else if (currentChampionLimit == 6)
+        {
+            needExp = 36;
+        }
+        else if (currentChampionLimit == 7)
+        {
+            needExp = 56;
+        }
+        else if (currentChampionLimit == 8)
+        {
+            needExp = 80;
+        }
+        else
+        {
+            needExp = 100;
+        }
+
+        if (currentExp >= needExp)
+        {
+            currentExp -= needExp;
+            currentChampionLimit++;
+        }
+
+    }
+
     /// <summary>
     /// Incrases the available champion slots by 1
     /// </summary>
@@ -723,10 +778,12 @@ public class GamePlayController : MonoBehaviour
         if (currentGold < 4)
             return;
 
-        if(currentChampionLimit < 9)
+        currentExp += 4;
+
+        if (currentChampionLimit < 9)
         {
-            //incrase champion limit
-            currentChampionLimit++;
+            CheckExp();
+            CheckExp();
 
             //decrase gold
             currentGold -= 4;

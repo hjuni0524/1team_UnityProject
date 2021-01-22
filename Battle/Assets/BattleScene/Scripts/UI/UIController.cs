@@ -22,6 +22,8 @@ public class UIController : MonoBehaviour
     public Text championCountText;
     public Text goldText;
     public Text hpText;
+    public Text expText;
+    public Text levelText;
 
     public GameObject shop;
     public GameObject restartButton;
@@ -29,8 +31,8 @@ public class UIController : MonoBehaviour
     public GameObject gold;
     public GameObject bonusContainer;
     public GameObject bonusUIPrefab;
+    Image expgage;
 
-   
     /// <summary>
     /// Called when a chamipon panel clicked on shop UI
     /// </summary>
@@ -46,11 +48,15 @@ public class UIController : MonoBehaviour
         //message shop from click
         championShop.OnChampionFrameClicked(championFrameIndex);
     }
+    void Start()
+    {
+        expgage = GameObject.Find("ExpGage").GetComponent<Image>();
+    }
 
-    /// <summary>
-    /// Called when refresh button clicked on shop UI
-    /// </summary>
-    public void Refresh_Click()
+/// <summary>
+/// Called when refresh button clicked on shop UI
+/// </summary>
+public void Refresh_Click()
     {
         championShop.RefreshShop(false);   
     }
@@ -127,6 +133,11 @@ public class UIController : MonoBehaviour
         goldText.text = gamePlayController.currentGold.ToString();
         championCountText.text = gamePlayController.currentChampionCount.ToString() + " / " + gamePlayController.currentChampionLimit.ToString();
         hpText.text = "HP " + gamePlayController.currentHP.ToString();
+
+        levelText.text = "Lv : " + gamePlayController.currentChampionLimit.ToString();
+        expText.text = gamePlayController.currentExp.ToString() + " / " + gamePlayController.needExp.ToString();
+
+         expgage.fillAmount = gamePlayController.currentExp / gamePlayController.needExp;
 
 
         //hide bonusus UI

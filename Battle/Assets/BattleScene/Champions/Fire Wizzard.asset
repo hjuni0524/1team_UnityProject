@@ -16,10 +16,11 @@ MonoBehaviour:
   attackProjectile: {fileID: 1597069992993035993, guid: 85891e03d6c87514a98a053eaf190895,
     type: 3}
   uiname: Fire Wizard
-  cost: 2
+  cost: 3
   type1: {fileID: 11400000, guid: 7f6e8df42876b24448eb70be660c3fac, type: 2}
   type2: {fileID: 11400000, guid: 3c4644fba6daec0469d795ae15fcc92e, type: 2}
   health: 150
   mana: 100
   damage: 20
   attackRange: 10
+  damageToPlayer: 1
