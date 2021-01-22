@@ -38,7 +38,7 @@ public class GamePlayController : MonoBehaviour
     public int baseGoldIncome = 5;
     public int winBonus = 0;
 
-    public float currentExp;
+    public float currentExp = 0;
     public float needExp;
 
 
@@ -70,7 +70,7 @@ public class GamePlayController : MonoBehaviour
         oponentChampionInventoryArray = new GameObject[Map.inventorySize];
         gridChampionsArray = new GameObject[Map.hexMapSizeX, Map.hexMapSizeZ / 2];
 
-        
+        CheckExp();
         uIController.UpdateUI();
 
         eventSystem = GameObject.Find("EventSystem").GetComponent<EventSystem>();
@@ -778,13 +778,13 @@ public class GamePlayController : MonoBehaviour
         if (currentGold < 4)
             return;
 
-        currentExp += 4;
+        
 
         if (currentChampionLimit < 9)
         {
             CheckExp();
-            CheckExp();
 
+            currentExp += 4;
             //decrase gold
             currentGold -= 4;
 

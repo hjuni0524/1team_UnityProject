@@ -30,6 +30,7 @@ public class AIopponent : MonoBehaviour
     {
         gameData = GameObject.Find("Scripts").GetComponent<GameData>();
         stage1 = GameObject.Find("Scripts").GetComponent<Stage1>();
+        round = 1;
     }
     /// <summary>
     /// Called when map is created

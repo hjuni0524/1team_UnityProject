@@ -117,7 +117,7 @@ public class ChampionShop : MonoBehaviour
             {
                 shoplist4.Add(i);
             }
-            else
+            else if(champion.cost == 5)
             {
                 shoplist5.Add(i);
             }

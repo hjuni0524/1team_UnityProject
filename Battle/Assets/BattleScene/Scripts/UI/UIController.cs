@@ -31,7 +31,7 @@ public class UIController : MonoBehaviour
     public GameObject gold;
     public GameObject bonusContainer;
     public GameObject bonusUIPrefab;
-    Image expgage;
+    public Image expgage;
 
     /// <summary>
     /// Called when a chamipon panel clicked on shop UI
@@ -48,10 +48,7 @@ public class UIController : MonoBehaviour
         //message shop from click
         championShop.OnChampionFrameClicked(championFrameIndex);
     }
-    void Start()
-    {
-        expgage = GameObject.Find("ExpGage").GetComponent<Image>();
-    }
+    
 
 /// <summary>
 /// Called when refresh button clicked on shop UI
